@@ -34,7 +34,7 @@ class BikeClub
     fastest_biker = ""
     fastest_time = Float::INFINITY
     #This is neat ^ 
-    
+
     @bikers.each do |biker|
       time = biker.personal_best(ride)
         if time < fastest_time
@@ -43,6 +43,16 @@ class BikeClub
         end 
       end 
       fastest_biker.name
+  end 
+
+  def capable(ride)
+    eligible_bikers = []
+    eligible_bikers = @bikers.find do |biker|
+      biker.acceptable_terrain.include?(ride.terrain) &&
+        biker.max_distance >= ride.total_distance
+    end
+    eligible_bikers.name
+    #I was here when time ran out. First test is passing, but it currently doesn't work with multiple bikers. Will need to .join the names next I think.
   end 
 
 

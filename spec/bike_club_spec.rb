@@ -75,6 +75,9 @@ describe BikeClub do
       biker.learn_terrain!(:hills)
 
       expect(club.capable(ride)).to eq("Kenny")
+      #this is where it breaks currently. 
+      biker2.learn_terrain!(:hills)
+      expect(club.capable(ride)).to include("Kenny", "Lilly")
     end 
 
   end 
