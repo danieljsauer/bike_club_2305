@@ -27,10 +27,13 @@ describe Ride do
       ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
       expect(ride1.loop?).to be false 
       expect(ride2.loop?).to be true 
-      ride1.loop?
-      ride2.loop?
+      expect(ride1.total_distance).to eq(10.7)
+      ride1.add_leg
+      ride2.add_leg
       expect(ride1.total_distance).to eq(21.4)
       expect(ride2.total_distance).to eq(14.9)
+      ride1.add_leg
+      expect(ride1.total_distance).to eq(32.1)
     end 
   end 
 end 
