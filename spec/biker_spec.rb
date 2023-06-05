@@ -70,11 +70,12 @@ describe Biker do
     it "can log PBs" do 
       biker = Biker.new("Kenny", 30)
       ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+      ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
       biker.learn_terrain!(:hills)
       biker.log_ride(ride1, 92.5)
       biker.log_ride(ride1, 91.1)
       expect(biker.personal_best(ride1)).to eq(91.1)
-      expect(biker.personal_best(ride2)).to be nil 
+      expect(biker.personal_best(ride2)).to eq("#{biker.name} has not ridden that ride yet!") 
     end 
 
   end 
