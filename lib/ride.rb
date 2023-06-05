@@ -17,9 +17,8 @@ class Ride
 
   def add_leg
 
-    if loop? == false
-      @counter += 1
-    end
+    !@loop 
+    @counter += 1
 
   end 
 
