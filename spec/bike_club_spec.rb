@@ -65,8 +65,16 @@ describe BikeClub do
 
     end 
 
-    xit "can return which bikers are eligible for a given ride" do 
+    it "can return which bikers are eligible for a given ride" do 
+      club = BikeClub.new("Bridge 4")
+      biker = Biker.new("Kenny", 30)
+      biker2 = Biker.new("Lilly", 15)
+      ride = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+      club.add_biker(biker)
+      club.add_biker(biker2)
+      biker.learn_terrain!(:hills)
 
+      expect(club.capable(ride)).to eq("Kenny")
     end 
 
   end 
