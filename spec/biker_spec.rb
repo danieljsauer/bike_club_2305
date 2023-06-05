@@ -8,7 +8,7 @@ describe Biker do
       expect(biker).to be_instance_of(Biker) 
     end 
 
-    it "has name, max_stiance, rides, and acceptable_terrain instance variables" do 
+    it "has name, max_distance, rides, and acceptable_terrain instance variables" do 
       biker = Biker.new("Kenny", 30)
       expect(biker.name).to eq("Kenny")
       expect(biker.max_distance).to eq(30)
