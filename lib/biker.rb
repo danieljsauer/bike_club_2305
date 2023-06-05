@@ -23,5 +23,14 @@ class Biker
     @rides[ride] ||= []
     @rides[ride] << time 
   end
+  # I am now realizing, I should create a new ride when I add a leg, since we will be comparing times over different distances. I will fix this later if I have time.
 
+  def personal_best(ride)
+    times = @rides[ride]
+    if times.nil? 
+      return "#{name} has not ridden that ride yet!"
+    else 
+      times.min
+    end 
+  end 
 end 
