@@ -8,10 +8,28 @@ class Ride
     @distance = ride_details[:distance]
     @loop = ride_details[:loop]
     @terrain = ride_details[:terrain]
+    @counter = 1
   end 
 
   def loop?
     @loop
   end 
+
+  def add_leg
+
+    if loop? == false
+      @counter += 1
+    end
+
+  end 
+
+def total_distance
+  if loop? == false
+    (@distance * @counter).round(1)
+  else 
+    @distance
+  end 
+end
+
 
 end 
