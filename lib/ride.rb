@@ -20,6 +20,11 @@ class Ride
     @counter += 1
   end 
 
+  def remove_leg
+    !@loop && @counter > 1
+    @counter -= 1
+  end 
+
 def total_distance
   if loop? == false
     (@distance * @counter).round(1)
