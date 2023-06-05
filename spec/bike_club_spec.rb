@@ -23,7 +23,7 @@ describe BikeClub do
 
   describe "instance methods" do 
 
-    xit "can add bikers" do 
+    it "can add bikers" do 
       club = BikeClub.new("Bridge 4")
       biker = Biker.new("Kenny", 30)
       biker2 = Biker.new("Lilly", 15)
