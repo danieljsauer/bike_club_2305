@@ -16,4 +16,14 @@ describe Biker do
       expect(biker.acceptable_terrain).to eq([])
     end 
   end 
+
+  describe "instance methods" do 
+    it " can learn new terrain" do 
+      biker = Biker.new("Kenny", 30)
+      biker.learn_terrain!(:gravel)
+      expect(biker.acceptable_terrain).to include(:gravel)
+      biker.learn_terrain!(:hills)
+      expect(biker.acceptable_terrain).to include(:gravel, :hills)
+    end 
+  end 
 end 
