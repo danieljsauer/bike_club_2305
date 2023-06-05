@@ -53,6 +53,9 @@ describe Biker do
     it "can only ride within max distance" do 
       biker = Biker.new("Kenny", 30)
       ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+      biker2 = Biker.new("Lilly", 5)
+      biker2.learn_terrain!(:hills)
+      expect(biker2.log_ride(ride1, 92.5)).to eq("#{biker2.name} cannot ride that far!")
       biker.learn_terrain!(:hills)
       ride1.add_leg
       ride1.add_leg
