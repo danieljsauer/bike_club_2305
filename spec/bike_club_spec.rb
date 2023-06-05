@@ -33,6 +33,26 @@ describe BikeClub do
       expect(club.bikers).to include(biker, biker2)
     end 
 
+    it "can tell which biker has logged the most rides" do 
+      club = BikeClub.new("Bridge 4")
+      biker = Biker.new("Kenny", 30)
+      biker2 = Biker.new("Lilly", 15)
+      ride = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+      biker.log_ride(ride, 92.5)
+      biker.log_ride(ride, 91.1)
+      biker2.log_ride(ride, 60.9)
+
+      expect(club.most_rides).to eq("Kenny")
+    end 
+
+    xit "can tell which biker has the best time for a ride" do 
+
+    end 
+
+    xit "can return which bikers are eligible for a given ride" do 
+
+    end 
+
   end 
 
 end 
