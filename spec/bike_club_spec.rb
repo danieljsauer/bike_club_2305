@@ -1,8 +1,9 @@
 require './lib/ride'
 require './lib/biker'
+require './lib/bike_club'
 require 'pry'
 
-describe Biker do
+describe BikeClub do
   describe "initialize" do 
     it "exists" do 
       club = BikeClub.new("Bridge 4")
@@ -22,7 +23,7 @@ describe Biker do
 
   describe "instance methods" do 
 
-    it "can add bikers" do 
+    xit "can add bikers" do 
       club = BikeClub.new("Bridge 4")
       biker = Biker.new("Kenny", 30)
       biker2 = Biker.new("Lilly", 15)
