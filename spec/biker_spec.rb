@@ -56,6 +56,13 @@ describe Biker do
       ride1.add_leg
       ride1.add_leg
       expect(biker.log_ride(ride1, 92.5)).to eq("#{biker.name} cannot ride that far!")
+      expect(biker.rides).to eq({}) 
+      ride1.remove_leg
+      biker.log_ride(ride1, 92.5)
+      expect(biker.rides).to eq({
+        ride1 => [92.5]
+      })
+
     end 
 
     xit "can log PBs" do 
