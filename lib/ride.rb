@@ -16,11 +16,13 @@ class Ride
   end 
 
   def add_leg
+    !@loop 
+    @counter += 1
+  end 
 
-    if loop? == false
-      @counter += 1
-    end
-
+  def remove_leg
+    !@loop && @counter > 1
+    @counter -= 1
   end 
 
 def total_distance

@@ -35,5 +35,18 @@ describe Ride do
       ride1.add_leg
       expect(ride1.total_distance).to eq(32.1)
     end 
+
+    it "can remove leg from non loop ride" do 
+      ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+      ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
+
+      ride2.remove_leg
+      expect(ride2.total_distance).to eq(14.9)
+
+      ride1.add_leg
+      ride1.add_leg
+      ride1.remove_leg
+      expect(ride1.total_distance).to eq(21.4)
+    end 
   end 
 end 
