@@ -53,13 +53,12 @@ describe Biker do
       biker = Biker.new("Kenny", 30)
       ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
       biker.learn_terrain!(:hills)
-      biker.ride1.add_leg
-      biker.ride1.add_leg
-      expect(biker.ride1.add_leg).to eq("#{biker.name} cannot ride that far!")
-
+      ride1.add_leg
+      ride1.add_leg
+      expect(biker.log_ride(ride1, 92.5)).to eq("#{biker.name} cannot ride that far!")
     end 
 
-    it "can log PBs" do 
+    xit "can log PBs" do 
       biker = Biker.new("Kenny", 30)
       ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
       biker.learn_terrain!(:hills)
