@@ -1,5 +1,6 @@
 require './lib/ride'
 require './lib/biker'
+require 'pry'
 
 describe Biker do
   describe "initialize" do 
@@ -62,16 +63,18 @@ describe Biker do
       expect(biker.rides).to eq({
         ride1 => [92.5]
       })
-
     end 
 
-    xit "can log PBs" do 
+    # I am now realizing, I should create a new ride when I add a leg, since we will be comparing times over different distances. I will fix this later if I have time.
+
+    it "can log PBs" do 
       biker = Biker.new("Kenny", 30)
       ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
       biker.learn_terrain!(:hills)
       biker.log_ride(ride1, 92.5)
       biker.log_ride(ride1, 91.1)
       expect(biker.personal_best(ride1)).to eq(91.1)
+      expect(biker.personal_best(ride2)).to be nil 
     end 
 
   end 
