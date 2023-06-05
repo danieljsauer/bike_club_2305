@@ -48,7 +48,20 @@ describe BikeClub do
       expect(club.most_rides).to eq("Kenny")
     end 
 
-    xit "can tell which biker has the best time for a ride" do 
+    it "can tell which biker has the best time for a ride" do 
+      club = BikeClub.new("Bridge 4")
+      biker = Biker.new("Kenny", 30)
+      biker2 = Biker.new("Lilly", 15)
+      ride = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+      club.add_biker(biker)
+      club.add_biker(biker2)
+      biker.learn_terrain!(:hills)
+      biker2.learn_terrain!(:hills)
+      biker.log_ride(ride, 92.5)
+      biker.log_ride(ride, 91.1)
+      biker2.log_ride(ride, 60.9)
+
+      expect(club.fastest(ride)).to eq ("Lilly")
 
     end 
 
